@@ -1,0 +1,1116 @@
+/* ==========================================================================
+   사계절 날씨 (Seasonal Weather) - Design System & Modern Aesthetics
+   ========================================================================== */
+
+:root {
+  /* 기본 공통 설정 */
+  --font-main: 'Outfit', 'Noto Sans KR', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --transition-theme: all 0.7s cubic-bezier(0.25, 1, 0.5, 1);
+  --transition-fast: all 0.25s ease;
+  --radius-sm: 10px;
+  --radius-md: 18px;
+  --radius-lg: 26px;
+  --radius-full: 9999px;
+  
+  /* 봄 (Spring) 테마 토큰 */
+  --spring-bg-gradient: radial-gradient(circle at 15% 15%, #ffd1dc 0%, #ffc0cb 25%, #f8bbd0 50%, #e1bee7 75%, #d1c4e9 100%);
+  --spring-glow: rgba(255, 143, 171, 0.35);
+  --spring-card-bg: rgba(255, 255, 255, 0.68);
+  --spring-card-border: rgba(255, 255, 255, 0.85);
+  --spring-primary: #d81b60;
+  --spring-accent: #ff4081;
+  --spring-text-main: #371b26;
+  --spring-text-muted: #754f5e;
+  --spring-chip-bg: rgba(255, 240, 245, 0.8);
+  --spring-chip-active: #ff4081;
+
+  /* 여름 (Summer) 테마 토큰 */
+  --summer-bg-gradient: radial-gradient(circle at 80% 20%, #38bdf8 0%, #0ea5e9 30%, #0284c7 60%, #0369a1 85%, #075985 100%);
+  --summer-glow: rgba(56, 189, 248, 0.45);
+  --summer-card-bg: rgba(15, 42, 74, 0.65);
+  --summer-card-border: rgba(56, 189, 248, 0.35);
+  --summer-primary: #38bdf8;
+  --summer-accent: #facc15;
+  --summer-text-main: #f0f9ff;
+  --summer-text-muted: #bae6fd;
+  --summer-chip-bg: rgba(14, 165, 233, 0.25);
+  --summer-chip-active: #38bdf8;
+
+  /* 가을 (Autumn) 테마 토큰 */
+  --autumn-bg-gradient: radial-gradient(circle at 20% 80%, #78350f 0%, #9a3412 30%, #b45309 60%, #ea580c 85%, #d97706 100%);
+  --autumn-glow: rgba(245, 158, 11, 0.4);
+  --autumn-card-bg: rgba(54, 21, 6, 0.68);
+  --autumn-card-border: rgba(245, 158, 11, 0.3);
+  --autumn-primary: #fbbf24;
+  --autumn-accent: #f97316;
+  --autumn-text-main: #fffbeb;
+  --autumn-text-muted: #fed7aa;
+  --autumn-chip-bg: rgba(217, 119, 6, 0.25);
+  --autumn-chip-active: #f59e0b;
+
+  /* 겨울 (Winter) 테마 토큰 */
+  --winter-bg-gradient: radial-gradient(circle at 50% 30%, #0f172a 0%, #1e1b4b 35%, #0f172a 70%, #030712 100%);
+  --winter-glow: rgba(99, 102, 241, 0.4);
+  --winter-card-bg: rgba(15, 23, 42, 0.72);
+  --winter-card-border: rgba(129, 140, 248, 0.3);
+  --winter-primary: #818cf8;
+  --winter-accent: #38bdf8;
+  --winter-text-main: #f8fafc;
+  --winter-text-muted: #cbd5e1;
+  --winter-chip-bg: rgba(99, 102, 241, 0.2);
+  --winter-chip-active: #818cf8;
+}
+
+/* 현재 적용된 계절에 따른 변수 할당 */
+html[data-season="spring"] {
+  --theme-bg: var(--spring-bg-gradient);
+  --theme-glow: var(--spring-glow);
+  --theme-card-bg: var(--spring-card-bg);
+  --theme-card-border: var(--spring-card-border);
+  --theme-primary: var(--spring-primary);
+  --theme-accent: var(--spring-accent);
+  --theme-text-main: var(--spring-text-main);
+  --theme-text-muted: var(--spring-text-muted);
+  --theme-chip-bg: var(--spring-chip-bg);
+  --theme-chip-active: var(--spring-chip-active);
+  --shadow-color: rgba(216, 27, 96, 0.12);
+}
+
+html[data-season="summer"] {
+  --theme-bg: var(--summer-bg-gradient);
+  --theme-glow: var(--summer-glow);
+  --theme-card-bg: var(--summer-card-bg);
+  --theme-card-border: var(--summer-card-border);
+  --theme-primary: var(--summer-primary);
+  --theme-accent: var(--summer-accent);
+  --theme-text-main: var(--summer-text-main);
+  --theme-text-muted: var(--summer-text-muted);
+  --theme-chip-bg: var(--summer-chip-bg);
+  --theme-chip-active: var(--summer-chip-active);
+  --shadow-color: rgba(14, 165, 233, 0.25);
+}
+
+html[data-season="autumn"] {
+  --theme-bg: var(--autumn-bg-gradient);
+  --theme-glow: var(--autumn-glow);
+  --theme-card-bg: var(--autumn-card-bg);
+  --theme-card-border: var(--autumn-card-border);
+  --theme-primary: var(--autumn-primary);
+  --theme-accent: var(--autumn-accent);
+  --theme-text-main: var(--autumn-text-main);
+  --theme-text-muted: var(--autumn-text-muted);
+  --theme-chip-bg: var(--autumn-chip-bg);
+  --theme-chip-active: var(--autumn-chip-active);
+  --shadow-color: rgba(180, 83, 9, 0.25);
+}
+
+html[data-season="winter"] {
+  --theme-bg: var(--winter-bg-gradient);
+  --theme-glow: var(--winter-glow);
+  --theme-card-bg: var(--winter-card-bg);
+  --theme-card-border: var(--winter-card-border);
+  --theme-primary: var(--winter-primary);
+  --theme-accent: var(--winter-accent);
+  --theme-text-main: var(--winter-text-main);
+  --theme-text-muted: var(--winter-text-muted);
+  --theme-chip-bg: var(--winter-chip-bg);
+  --theme-chip-active: var(--winter-chip-active);
+  --shadow-color: rgba(99, 102, 241, 0.25);
+}
+
+/* 기본 리셋 & 전체 레이아웃 */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--font-main);
+  color: var(--theme-text-main);
+  background: var(--theme-bg);
+  min-height: 100vh;
+  position: relative;
+  overflow-x: hidden;
+  transition: var(--transition-theme);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* 배경 캔버스 (파티클 효과) */
+#season-canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* 은은한 앰비언트 글로우 조명 효과 */
+.ambient-glow {
+  position: fixed;
+  top: 10%;
+  left: 20%;
+  width: 50vw;
+  height: 50vh;
+  background: var(--theme-glow);
+  filter: blur(120px);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.7;
+  transition: background 1s ease, filter 1s ease;
+  animation: pulseGlow 8s ease-in-out infinite alternate;
+}
+
+@keyframes pulseGlow {
+  0% { transform: scale(1) translate(0, 0); }
+  50% { transform: scale(1.15) translate(40px, -20px); }
+  100% { transform: scale(0.95) translate(-30px, 20px); }
+}
+
+/* 메인 컨테이너 */
+.app-wrapper {
+  position: relative;
+  z-index: 2;
+  max-width: 1060px;
+  margin: 0 auto;
+  padding: 2.5rem 1.5rem 4rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+/* ==========================================================================
+   헤더 영역
+   ========================================================================== */
+.app-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  padding-bottom: 0.5rem;
+}
+
+.header-branding {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.brand-icon {
+  font-size: 2.4rem;
+  background: var(--theme-card-bg);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--theme-card-border);
+  padding: 0.6rem;
+  border-radius: var(--radius-md);
+  box-shadow: 0 8px 24px var(--shadow-color);
+  animation: floatIcon 3.5s ease-in-out infinite;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@keyframes floatIcon {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
+}
+
+.brand-text h1 {
+  font-size: 1.9rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  color: var(--theme-text-main);
+  text-shadow: 0 2px 10px rgba(0,0,0,0.06);
+}
+
+.brand-subtitle {
+  font-size: 0.85rem;
+  color: var(--theme-text-muted);
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+/* 계절 전환 탭 컨트롤러 */
+.season-controller {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  background: var(--theme-card-bg);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  padding: 0.4rem 0.5rem;
+  border-radius: var(--radius-full);
+  border: 1px solid var(--theme-card-border);
+  box-shadow: 0 8px 24px var(--shadow-color);
+}
+
+.controller-label {
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--theme-text-muted);
+  padding-left: 0.7rem;
+  letter-spacing: -0.01em;
+}
+
+.season-tabs {
+  display: flex;
+  gap: 0.3rem;
+}
+
+.season-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.45rem 0.85rem;
+  border: none;
+  background: transparent;
+  color: var(--theme-text-main);
+  font-family: inherit;
+  font-size: 0.88rem;
+  font-weight: 600;
+  border-radius: var(--radius-full);
+  cursor: pointer;
+  transition: var(--transition-fast);
+  outline: none;
+}
+
+.season-btn:hover {
+  background: rgba(255, 255, 255, 0.25);
+  transform: translateY(-1px);
+}
+
+.season-btn.active {
+  background: var(--theme-primary);
+  color: #ffffff;
+  box-shadow: 0 4px 14px var(--theme-glow);
+  transform: translateY(-1px);
+}
+
+.season-btn.active .season-icon {
+  transform: scale(1.15);
+}
+
+.season-icon {
+  font-size: 1rem;
+  transition: transform 0.2s ease;
+}
+
+/* ==========================================================================
+   검색 & 위치 & 프리셋 칩
+   ========================================================================== */
+.search-section {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.search-bar-container {
+  display: flex;
+  gap: 0.75rem;
+  position: relative;
+  width: 100%;
+}
+
+.search-input-wrapper {
+  position: relative;
+  flex: 1;
+  display: flex;
+  align-items: center;
+}
+
+.search-icon {
+  position: absolute;
+  left: 1.25rem;
+  color: var(--theme-text-muted);
+  pointer-events: none;
+  transition: color 0.2s ease;
+}
+
+.search-input-wrapper input {
+  width: 100%;
+  padding: 0.95rem 2.8rem 0.95rem 3.2rem;
+  background: var(--theme-card-bg);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid var(--theme-card-border);
+  border-radius: var(--radius-full);
+  color: var(--theme-text-main);
+  font-family: inherit;
+  font-size: 1rem;
+  font-weight: 500;
+  box-shadow: 0 8px 24px var(--shadow-color);
+  outline: none;
+  transition: var(--transition-fast);
+}
+
+.search-input-wrapper input:focus {
+  border-color: var(--theme-accent);
+  box-shadow: 0 0 0 3px var(--theme-glow);
+}
+
+.search-input-wrapper input::placeholder {
+  color: var(--theme-text-muted);
+  opacity: 0.75;
+}
+
+.clear-btn {
+  position: absolute;
+  right: 1.1rem;
+  background: transparent;
+  border: none;
+  font-size: 1.3rem;
+  color: var(--theme-text-muted);
+  cursor: pointer;
+  padding: 0.2rem;
+  border-radius: 50%;
+  line-height: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.clear-btn:hover {
+  color: var(--theme-text-main);
+}
+
+.geo-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0 1.4rem;
+  background: var(--theme-card-bg);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid var(--theme-card-border);
+  border-radius: var(--radius-full);
+  color: var(--theme-text-main);
+  font-family: inherit;
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 8px 24px var(--shadow-color);
+  transition: var(--transition-fast);
+  white-space: nowrap;
+}
+
+.geo-btn:hover {
+  background: var(--theme-primary);
+  color: #fff;
+  border-color: var(--theme-primary);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px var(--theme-glow);
+}
+
+.geo-btn svg {
+  transition: transform 0.3s ease;
+}
+
+.geo-btn:hover svg {
+  transform: scale(1.15);
+}
+
+/* 자동완성 드롭다운 */
+.search-dropdown {
+  position: absolute;
+  top: calc(100% + 8px);
+  left: 0;
+  right: 0;
+  background: var(--theme-card-bg);
+  backdrop-filter: blur(30px);
+  -webkit-backdrop-filter: blur(30px);
+  border: 1px solid var(--theme-card-border);
+  border-radius: var(--radius-md);
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.25);
+  list-style: none;
+  padding: 0.5rem 0;
+  z-index: 50;
+  max-height: 280px;
+  overflow-y: auto;
+}
+
+.search-dropdown li {
+  padding: 0.8rem 1.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+  font-size: 0.95rem;
+  color: var(--theme-text-main);
+  transition: background 0.15s ease;
+}
+
+.search-dropdown li:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.dropdown-country {
+  font-size: 0.8rem;
+  color: var(--theme-text-muted);
+}
+
+/* 빠른 추천 지역 칩 */
+.quick-cities {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  flex-wrap: wrap;
+}
+
+.quick-label {
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: var(--theme-text-muted);
+  white-space: nowrap;
+}
+
+.city-chips {
+  display: flex;
+  gap: 0.45rem;
+  flex-wrap: wrap;
+}
+
+.chip {
+  padding: 0.4rem 0.95rem;
+  border-radius: var(--radius-full);
+  background: var(--theme-chip-bg);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--theme-card-border);
+  color: var(--theme-text-main);
+  font-size: 0.86rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: var(--transition-fast);
+}
+
+.chip:hover {
+  background: rgba(255, 255, 255, 0.35);
+  transform: translateY(-2px);
+}
+
+.chip.active {
+  background: var(--theme-chip-active);
+  color: #fff;
+  border-color: var(--theme-chip-active);
+  box-shadow: 0 4px 12px var(--theme-glow);
+}
+
+/* ==========================================================================
+   로딩 및 알림
+   ========================================================================== */
+.status-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.8rem;
+  padding: 1rem 1.5rem;
+  background: var(--theme-card-bg);
+  backdrop-filter: blur(20px);
+  border-radius: var(--radius-md);
+  border: 1px solid var(--theme-card-border);
+  color: var(--theme-text-main);
+  font-weight: 600;
+  animation: fadeIn 0.3s ease;
+}
+
+.spinner {
+  width: 20px;
+  height: 20px;
+  border: 3px solid rgba(255, 255, 255, 0.3);
+  border-top-color: var(--theme-primary);
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* ==========================================================================
+   날씨 대시보드 메인
+   ========================================================================== */
+.weather-dashboard {
+  display: flex;
+  flex-direction: column;
+  gap: 1.8rem;
+}
+
+/* 히어로 카드 */
+.hero-weather-card {
+  position: relative;
+  background: var(--theme-card-bg);
+  backdrop-filter: blur(28px);
+  -webkit-backdrop-filter: blur(28px);
+  border: 1px solid var(--theme-card-border);
+  border-radius: var(--radius-lg);
+  padding: 2.2rem 2.5rem;
+  box-shadow: 0 16px 40px var(--shadow-color);
+  overflow: hidden;
+  transition: var(--transition-theme);
+}
+
+.hero-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 1.6rem;
+}
+
+.location-name {
+  font-size: 2.3rem;
+  font-weight: 800;
+  line-height: 1.15;
+  color: var(--theme-text-main);
+  letter-spacing: -0.02em;
+}
+
+.current-datetime {
+  font-size: 0.95rem;
+  color: var(--theme-text-muted);
+  font-weight: 500;
+  margin-top: 0.35rem;
+}
+
+.season-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.5rem 1rem;
+  border-radius: var(--radius-full);
+  background: rgba(255, 255, 255, 0.25);
+  backdrop-filter: blur(12px);
+  border: 1px solid var(--theme-card-border);
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--theme-text-main);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.05);
+}
+
+.season-badge-icon {
+  font-size: 1.15rem;
+}
+
+/* 히어로 본문 (온도 & 날씨 아이콘) */
+.hero-body {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  padding: 0.8rem 0 1.8rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+.weather-visual {
+  display: flex;
+  align-items: center;
+  gap: 1.8rem;
+}
+
+.weather-icon-wrapper {
+  width: 96px;
+  height: 96px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  filter: drop-shadow(0 10px 20px var(--theme-glow));
+  animation: weatherFloat 4s ease-in-out infinite;
+}
+
+@keyframes weatherFloat {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  50% { transform: translateY(-7px) rotate(3deg); }
+}
+
+.weather-icon-wrapper svg {
+  width: 100%;
+  height: 100%;
+}
+
+.temperature-group {
+  display: flex;
+  align-items: flex-start;
+}
+
+.current-temp {
+  font-size: 5.6rem;
+  font-weight: 800;
+  line-height: 0.9;
+  letter-spacing: -0.04em;
+  color: var(--theme-text-main);
+  text-shadow: 0 4px 18px var(--shadow-color);
+}
+
+.temp-unit {
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: var(--theme-primary);
+  margin-top: 0.3rem;
+  margin-left: 0.1rem;
+}
+
+.weather-condition-info {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  text-align: right;
+  gap: 0.5rem;
+}
+
+.weather-description {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: var(--theme-text-main);
+  letter-spacing: -0.02em;
+}
+
+.temp-range {
+  font-size: 1.05rem;
+  color: var(--theme-text-muted);
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  font-weight: 500;
+}
+
+.temp-range b {
+  color: var(--theme-text-main);
+  font-weight: 700;
+}
+
+.temp-divider {
+  opacity: 0.4;
+}
+
+/* 계절별 추천 문구 */
+.seasonal-recommendation {
+  margin-top: 1.4rem;
+  display: flex;
+  align-items: center;
+  gap: 1.1rem;
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(14px);
+  padding: 1rem 1.4rem;
+  border-radius: var(--radius-md);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+}
+
+.rec-icon {
+  font-size: 2.2rem;
+  flex-shrink: 0;
+  animation: gentlePulse 2.5s ease-in-out infinite;
+}
+
+@keyframes gentlePulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.12); }
+}
+
+.rec-title {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--theme-text-main);
+  margin-bottom: 0.2rem;
+}
+
+.rec-desc {
+  font-size: 0.9rem;
+  color: var(--theme-text-muted);
+  line-height: 1.45;
+}
+
+/* ==========================================================================
+   세부 지표 그리드
+   ========================================================================== */
+.metrics-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.2rem;
+}
+
+.metric-card {
+  background: var(--theme-card-bg);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid var(--theme-card-border);
+  border-radius: var(--radius-md);
+  padding: 1.35rem 1.4rem;
+  box-shadow: 0 10px 28px var(--shadow-color);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.metric-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 14px 34px var(--shadow-color);
+}
+
+.metric-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--theme-primary);
+  margin-bottom: 0.9rem;
+}
+
+.metric-data {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+
+.metric-label {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--theme-text-muted);
+}
+
+.metric-value {
+  font-size: 1.65rem;
+  font-weight: 800;
+  color: var(--theme-text-main);
+  letter-spacing: -0.02em;
+}
+
+.metric-sub {
+  font-size: 0.78rem;
+  color: var(--theme-text-muted);
+  margin-top: 0.6rem;
+  font-weight: 500;
+}
+
+/* ==========================================================================
+   예보 섹션 (시간별 & 주간)
+   ========================================================================== */
+.forecast-section {
+  background: var(--theme-card-bg);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid var(--theme-card-border);
+  border-radius: var(--radius-lg);
+  padding: 1.6rem 2rem;
+  box-shadow: 0 12px 32px var(--shadow-color);
+}
+
+.section-title {
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--theme-text-main);
+  margin-bottom: 1.3rem;
+  letter-spacing: -0.01em;
+}
+
+.section-title svg {
+  color: var(--theme-primary);
+}
+
+/* 시간별 가로 스크롤 리스트 */
+.hourly-scroll-container {
+  display: flex;
+  gap: 1rem;
+  overflow-x: auto;
+  padding-bottom: 0.6rem;
+  scrollbar-width: thin;
+  scrollbar-color: var(--theme-primary) transparent;
+}
+
+.hourly-scroll-container::-webkit-scrollbar {
+  height: 6px;
+}
+
+.hourly-scroll-container::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.05);
+  border-radius: 10px;
+}
+
+.hourly-scroll-container::-webkit-scrollbar-thumb {
+  background: var(--theme-primary);
+  border-radius: 10px;
+}
+
+.hourly-card {
+  min-width: 82px;
+  background: rgba(255, 255, 255, 0.18);
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  border-radius: var(--radius-md);
+  padding: 0.95rem 0.6rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  text-align: center;
+  transition: transform 0.2s ease, background 0.2s ease;
+  flex-shrink: 0;
+}
+
+.hourly-card:hover {
+  transform: translateY(-3px);
+  background: rgba(255, 255, 255, 0.28);
+}
+
+.hourly-card.now {
+  background: var(--theme-primary);
+  color: #fff;
+  border-color: var(--theme-primary);
+  box-shadow: 0 6px 16px var(--theme-glow);
+}
+
+.hourly-card.now .hourly-time,
+.hourly-card.now .hourly-temp {
+  color: #fff;
+}
+
+.hourly-time {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--theme-text-muted);
+}
+
+.hourly-icon {
+  width: 34px;
+  height: 34px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hourly-icon svg {
+  width: 100%;
+  height: 100%;
+}
+
+.hourly-temp {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--theme-text-main);
+}
+
+/* 주간 7일 예보 그리드 */
+.daily-forecast-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.daily-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.9rem 1.2rem;
+  background: rgba(255, 255, 255, 0.15);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: var(--radius-sm);
+  transition: transform 0.2s ease, background 0.2s ease;
+}
+
+.daily-row:hover {
+  transform: translateX(4px);
+  background: rgba(255, 255, 255, 0.24);
+}
+
+.daily-day-group {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  min-width: 130px;
+}
+
+.daily-day {
+  font-weight: 700;
+  font-size: 0.95rem;
+  color: var(--theme-text-main);
+}
+
+.daily-date {
+  font-size: 0.8rem;
+  color: var(--theme-text-muted);
+}
+
+.daily-weather-group {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  flex: 1;
+  padding: 0 1rem;
+}
+
+.daily-icon {
+  width: 28px;
+  height: 28px;
+}
+
+.daily-condition {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--theme-text-main);
+}
+
+.daily-temp-bar-container {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  min-width: 160px;
+  justify-content: flex-end;
+}
+
+.daily-min {
+  font-size: 0.95rem;
+  color: var(--theme-text-muted);
+  font-weight: 600;
+  width: 36px;
+  text-align: right;
+}
+
+.daily-bar {
+  flex: 1;
+  height: 6px;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 999px;
+  overflow: hidden;
+  position: relative;
+}
+
+.daily-bar-fill {
+  height: 100%;
+  border-radius: 999px;
+  background: linear-gradient(90deg, #38bdf8, #f59e0b, #ef4444);
+}
+
+.daily-max {
+  font-size: 0.95rem;
+  color: var(--theme-text-main);
+  font-weight: 700;
+  width: 36px;
+  text-align: left;
+}
+
+/* ==========================================================================
+   푸터
+   ========================================================================== */
+.app-footer {
+  text-align: center;
+  font-size: 0.82rem;
+  color: var(--theme-text-muted);
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  padding-top: 1.5rem;
+}
+
+.app-footer a {
+  color: var(--theme-primary);
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.app-footer a:hover {
+  text-decoration: underline;
+}
+
+.copyright {
+  opacity: 0.85;
+}
+
+/* ==========================================================================
+   유틸리티 & 반응형
+   ========================================================================== */
+.hidden {
+  display: none !important;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-4px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* 반응형 모바일 최적화 */
+@media (max-width: 900px) {
+  .metrics-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 680px) {
+  .app-wrapper {
+    padding: 1.25rem 1rem 3rem;
+    gap: 1.4rem;
+  }
+
+  .app-header {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .season-controller {
+    justify-content: space-between;
+    overflow-x: auto;
+  }
+
+  .season-tabs {
+    flex: 1;
+    justify-content: space-between;
+  }
+
+  .season-btn {
+    padding: 0.4rem 0.6rem;
+    font-size: 0.8rem;
+  }
+
+  .hero-weather-card {
+    padding: 1.6rem 1.4rem;
+  }
+
+  .hero-header {
+    flex-direction: column;
+    gap: 0.8rem;
+    align-items: flex-start;
+  }
+
+  .location-name {
+    font-size: 1.8rem;
+  }
+
+  .hero-body {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1.2rem;
+  }
+
+  .weather-condition-info {
+    align-items: flex-start;
+    text-align: left;
+  }
+
+  .current-temp {
+    font-size: 4.5rem;
+  }
+
+  .metrics-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.8rem;
+  }
+
+  .daily-row {
+    flex-wrap: wrap;
+    gap: 0.6rem;
+  }
+
+  .daily-weather-group {
+    padding: 0;
+  }
+}
